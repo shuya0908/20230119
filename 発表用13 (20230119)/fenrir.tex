@@ -1,0 +1,95 @@
+\documentclass{jsarticle}
+% \documentclass[b4paper,landscape,14pt]{jsarticle}
+\title{}
+\author{}
+\date{
+% \number\year 年 \number\month 月
+}
+\usepackage{fenrir_v1_4_0}
+\usepackage{ethm_v1_1_0}
+\mathtoolsset{showonlyrefs=true}
+
+\begin{document}
+% \maketitle
+\setcounter{section}{4}
+\section{Stochastic Integration}
+\setcounter{subsection}{4}
+\subsection{Girsanov's Theorem}
+
+\setcounter{thm}{22}
+\begin{screen}
+    \begin{thm}
+    \label{thm:523}
+        $L$: CLM s.t. $L_0=0.$
+        以下の性質を考える：
+        \begin{enumerate}[label=(\roman*)]
+            \item
+            $E[\exp\frac{1}{2}\gen{L,L}_{\infty}]<\infty$
+            (Novikov's criterion\footnote{criterion（クライテリオン）：基準})
+            \item
+            $L$: CLMかつ $E[\exp\frac{1}{2}L_{\infty}]<\infty$
+            (Kazamaki's criterion)
+            \item
+            $\mathcal{E}(L)$: UIM
+        \end{enumerate}
+        このとき，(i) $\Rightarrow$ (ii) $\Rightarrow$ (iii) の順で成立．
+    \end{thm}
+\end{screen}
+
+
+\begin{proof}
+    \begin{description}
+        \item[(i) $\Rightarrow$ (ii)]
+        (i) より $E[\gen{L,L}_{\infty}]<\infty$ であり，さらにThm. 4.13より $L$ は $L^2$-bdd. な連続martingale.
+        このとき
+        \begin{align}
+            \exp\frac{1}{2}L_{\infty}
+            = (\mathcal{E}(L)_{\infty})^{1/2}(\exp\frac{1}{2}\gen{L,L}_{\infty})^{1/2}
+        \end{align}
+        が成り立つので，Cauchy-Schwarzの不等式より
+        \begin{align}
+            E[\exp\frac{1}{2}L_{\infty}]
+            &\le (E[\mathcal{E}(L)_{\infty}])^{1/2}
+            (E[\exp\frac{1}{2}\gen{L,L}_{\infty}])^{1/2} \\
+            &\le (E[\exp\frac{1}{2}\gen{L,L}_{\infty}])^{1/2}
+            < \infty.
+        \end{align}
+        
+        \item[(ii) $\Rightarrow$ (iii)]
+        $L$ がUIMであることからThm. 3.22より任意のstopping time $T$ に対し $L_T=E[L_{\infty}\mid\clf_T].$
+        Jensenの不等式より
+        \begin{align}
+            \exp\frac{1}{2}L_T
+            \le E[\exp\frac{1}{2}L_{\infty}\mid\clf_T].
+        \end{align}
+
+        $E[\exp\frac{1}{2}L_{\infty}]<\infty$ という仮定より，任意のstopping time $T$ に対し $E[\exp\frac{1}{2}L_{\infty}\mid\clf_T]$ の形をしたすべてのr.v.の族は一様可積分．
+        さらに先ほどの有界性より，任意のstopping time $T$ に対し $\exp\frac{1}{2}L_T$ の形をしたすべてのr.v.の族もまた一様可積分．
+
+        $0<\Forall a<1$ に対し，$Z_t^{(a)}:=\exp(\frac{aL_t}{1+a})$ と定める．
+        このとき
+        \begin{align}
+            \mathcal{E}(aL)_t
+            = (\mathcal{E}(L)_t)^{a^2}(Z_t^{(a)})^{1-a^2}
+        \end{align}
+        となることがすぐにわかる．
+        もし $\Gamma\in\clf$ かつ $T$: stopping timeならば，H\"{o}lderの不等式より
+        \begin{align}
+            E[\bm{1}_\Gamma\mathcal{E}(aL)_T]
+            \le E[\mathcal{E}(L)_T]^{a^2}
+            E[\bm{1}_\Gamma Z_T^{(a)}]^{1-a^2}
+            \le E[\bm{1}_\Gamma Z_T^{(a)}]^{1-a^2}
+            \le E[\bm{1}_\Gamma\exp\frac{1}{2}L_T]^{2a(1-a)}.
+        \end{align}
+
+        ２つ目の不等号では $E[\mathcal{E}(L)_T]\le1$ という性質を用いた（$\mathcal{E}(L)$: 非負supermartingaleかつ $\mathcal{E}(L)_0=1$ よりProp. 3.25が適用できる）．
+        ３つ目の不等号では $\frac{1+a}{2a}>1$ に注意してJensenの不等式を用いた．
+        任意のstopping time $T$ に対し $\exp\frac{1}{2}L_T$ の形をしたすべてのr.v.の族が一様可積分であることより，
+    \end{description}
+\end{proof}
+
+
+
+
+
+\end{document}
