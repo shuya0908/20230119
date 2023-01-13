@@ -85,13 +85,62 @@
         ２つ目の不等号では $E[\mathcal{E}(L)_T]\le1$ という性質を用いた（$\mathcal{E}(L)$: 非負supermartingaleかつ $\mathcal{E}(L)_0=1$ よりProp. 3.25が適用できる）．
         ３つ目の不等号では $\frac{1+a}{2a}>1$ に注意してJensenの不等式を用いた．
         任意のstopping time $T$ に対し $\exp\frac{1}{2}L_T$ の形をしたすべてのr.v.の族が一様可積分であることより，先ほどの表示から任意のstopping time $T$ に対し $\mathcal{E}(aL)_T$ の形をしたすべてのr.v.の族もまた一様可積分であることが言える．
-        CLMの定義よりstopping timeの増加列 $T_n\uparrow\infty$ s.t. $\Forall n,\mathcal{E}(aL)_{t\wedge T_n}$: martingaleが存在する．
-        
+        CLMの定義より $\Forall n$ に対し $\mathcal{E}(aL)_{t\wedge T_n}$: martingaleとなるstopping timeの増加列 $T_n\uparrow\infty$ が存在する．
+        $0\le s\le t$ に対し $E[\mathcal{E}(aL)_{t\wedge T_n}\mid\clf_s]=\mathcal{E}(aL)_{s\wedge T_n}$ が成り立ち，一様可積分性より両辺について $n\to\infty$ とすると $\mathcal{E}(aL)$ は一様可積分．
+        これより再びJensenの不等式を用いることで
+        \begin{align}
+            1=E[\mathcal{E}(aL)_{\infty}]
+            \le E[\mathcal{E}(L)_\infty]^{a^2}
+            E[Z_{\infty}^{(a)}]^{1-a^2}
+            \le E[\mathcal{E}(L)_\infty]^{a^2}
+            E[\exp\frac{1}{2}L_\infty]^{2a(1-a)}
+        \end{align}
+        がわかる．
+        $a\to1$ とすると $E[\mathcal{E}(L)_\infty]\ge1$ より $E[\mathcal{E}(L)_\infty]=1.$
     \end{description}
 \end{proof}
 
 
+\subsection{A Few Applications of Girsanov's Theorem}
 
+\textbf{Constructing solutions of stochastic differential equations（確率微分方程式の解の構成）}
+$b$: bdd. m'ble ft. on $\real_+\times\real$ とする．
+$\Forall (t,x)\in\real_+\times\real$ に対し $\abs{b(t,x)}\le g(t)$ を満たす関数 $g\in L^2(\real_+,\clb(\real_+),dt)$ が存在すると仮定．
+これは特に
+\begin{align}
+    \abs{b}=
+    \begin{cases}
+        \text{bdd.} &\text{on}\quad [0,A]\times\real_+ \\
+        0 &\text{on}\quad (A,\infty)\times\real_+
+    \end{cases}
+\end{align}
+を満たす $A>0$ が存在するときに成り立つ．
+
+$B$: $(\clf_t)$-BMとする．
+以下のCLM
+\begin{align}
+    L_t=\int_0^t b(s,B_s)dB_s
+\end{align}
+と関連する指数martingale
+\begin{align}
+    D_t
+    = \mathcal{E}(L)_t
+    = \exp\left(\int_0^t b(s,B_s)dB_s-\frac{1}{2}\int_0^t b(s,B_s)^2 ds\right)
+\end{align}
+について考える．
+$b$ の仮定よりThm. \ref{thm:523}の(i)が成り立つことは保証され，ゆえに $D$: UIM.
+$Q:=D_\infty\cdot P$ と定める．
+Girsanov's ThmとConsequencesの(c)より
+\begin{align}
+    \beta_t:=B_t-\int_0^t b(s,B_s)ds
+\end{align}
+で定まるprocessは $(\clf_t)$-BM under $Q.$
+
+この性質はprocess $X=B$ が確率微分方程式
+\begin{align}
+    dX_t=d\beta_t+b(t,X_t)dt
+\end{align}
+の解であるような $(\clf_t)$-BM $\beta$ が確率測度 $Q$ の下で存在する，と言い換えることができる．
 
 
 \end{document}
