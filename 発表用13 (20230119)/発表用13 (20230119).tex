@@ -141,6 +141,17 @@ Girsanov's ThmとConsequencesの(c)より
     dX_t=d\beta_t+b(t,X_t)dt
 \end{align}
 の解であるような $(\clf_t)$-BM $\beta$ が確率測度 $Q$ の下で存在する，と言い換えることができる．
+（この式は後述の第７章で検討されるタイプのものであるが，この章の記述とは異なり，第７章では関数 $b$ に正則性は仮定していない．
+Girsanov's Thmにより係数の正則性を仮定することなく確率微分方程式の解を構成することができる．）
+
+\textbf{The Cameron-Martin formula}
+先ほどの議論を $b(t,x)$ が $x$ に依存しない場合に絞って議論する．
+$g\in L^2(\real_+,\clb(\real_+),dt)$ に対し $b(t,x)=g(t)$ と定め，また $\Forall t\ge0$ に対し
+\begin{align}
+    h(t)=\int_{0}^{t}g(s)ds
+\end{align}
+と定める．
+この形で表される関数 $h$ 全体の集合 $\mathcal{H}$ をCameron-Martin sp.と呼ぶ．
 
 
 \end{document}
