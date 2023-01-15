@@ -1,4 +1,4 @@
-This is e-pTeX, Version 3.14159265-p3.8.3-191112-2.6 (utf8.sjis) (TeX Live 2020/W32TeX) (preloaded format=platex 2020.12.7)  15 JAN 2023 23:47
+This is e-pTeX, Version 3.14159265-p3.8.3-191112-2.6 (utf8.sjis) (TeX Live 2020/W32TeX) (preloaded format=platex 2020.12.7)  16 JAN 2023 06:48
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -567,8 +567,7 @@ File: l3backend-dvips.def 2020-09-24 L3 backend support: dvips
 \g__pdf_backend_annotation_int=\count313
 \g__pdf_backend_link_int=\count314
 \g__pdf_backend_link_sf_int=\count315
-)
-No file fenrir.aux.
+) (./fenrir.aux)
 \openout1 = `fenrir.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 12.
@@ -592,7 +591,7 @@ LaTeX Font Info:    ... okay on input line 12.
 LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 12.
 LaTeX Font Info:    ... okay on input line 12.
 Package hyperref Info: Link coloring OFF on input line 12.
-(c:/texlive/2020/texmf-dist/tex/latex/hyperref/nameref.sty
+ (c:/texlive/2020/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2019/09/16 v2.46 Cross-referencing by name of section
  (c:/texlive/2020/texmf-dist/tex/latex/refcount/refcount.sty
 Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
@@ -604,12 +603,9 @@ Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 LaTeX Info: Redefining \ref on input line 12.
 LaTeX Info: Redefining \pageref on input line 12.
 LaTeX Info: Redefining \nameref on input line 12.
+ (./fenrir.out) (./fenrir.out)
 \@outlinefile=\write6
 \openout6 = `fenrir.out'.
-
-
-
-Package hyperref Warning: Rerun to get /PageLabels entry.
 
 LaTeX Font Info:    Font shape `JT1/mc/m/n' will be
 (Font)              scaled to size 13.83836pt on input line 15.
@@ -640,7 +636,7 @@ LaTeX Font Info:    Font shape `JY1/mc/m/n' will be
 LaTeX Font Info:    Font shape `JY1/mc/m/n' will be
 (Font)              scaled to size 4.805pt on input line 23.
 LaTeX Font Info:    Trying to load font information for U+msa on input line 23.
-(c:/texlive/2020/texmf-dist/tex/latex/amsfonts/umsa.fd
+ (c:/texlive/2020/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
 LaTeX Font Info:    Trying to load font information for U+msb on input line 23.
@@ -697,37 +693,17 @@ LaTeX Font Info:    Font shape `JT1/mc/m/n' will be
 (Font)              scaled to size 4.805pt on input line 73.
  [1
 
-]
-Underfull \hbox (badness 1092) in paragraph at lines 113--117
-[]\OT1/cmr/bx/n/10 Constructing so-lu-tions of stochas-tic dif-fer-en-tial equa-tions \JY1/gt/m/n/10 （ 確率微分方程式の解の構
- []
-
-
-LaTeX Warning: Reference `thm:523' on page 2 undefined on input line 138.
-
-[2] [3] (./fenrir.aux)
-
-Package rerunfilecheck Warning: File `fenrir.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `fenrir.out':
-(rerunfilecheck)             Before: <no file>
-(rerunfilecheck)             After:  C192A775A25171B134EC455191D91DB5;267.
-
-LaTeX Warning: There were undefined references.
-
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
+] [2] [3] (./fenrir.aux)
+Package rerunfilecheck Info: File `fenrir.out' has not changed.
+(rerunfilecheck)             Checksum: C192A775A25171B134EC455191D91DB5;267.
  ) 
 Here is how much of TeX's memory you used:
- 19651 strings out of 481335
- 371326 string characters out of 5918733
- 680449 words of memory out of 5000000
- 36436 multiletter control sequences out of 15000+600000
+ 19659 strings out of 481335
+ 371405 string characters out of 5918733
+ 681004 words of memory out of 5000000
+ 36438 multiletter control sequences out of 15000+600000
  422898 words of font info for 113 fonts, out of 8000000 for 9000
  19 hyphenation exceptions out of 8191
  107i,16n,111p,539b,642s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on fenrir.dvi (3 pages, 16200 bytes).
+Output written on fenrir.dvi (3 pages, 16532 bytes).

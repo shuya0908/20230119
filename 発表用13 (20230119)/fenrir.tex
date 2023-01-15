@@ -40,9 +40,9 @@
 \begin{proof}
     \begin{description}
         \item[(i) $\Rightarrow$ (ii)]
-        $\gen{L,L}_\infty<\exp\frac{1}{2}\gen{L,L}_\infty$ と(i) より $E[\gen{L,L}_{\infty}]<E[\exp\frac{1}{2}\gen{L,L}_{\infty}]<\infty$ であり，さらにThm4.13より $L$ は $L^2$-bddな連続martingale.
-        つまり $L^1$-bdd.な連続martingaleなのでProp3.19より $\Exists L_\infty=\lim_{t\to\infty}L_t$ a.s.
-        よってThm3.21より $L$: UIM.
+        $\gen{L,L}_\infty<\exp\frac{1}{2}\gen{L,L}_\infty$ と(i) より $E[\gen{L,L}_{\infty}]<E[\exp\frac{1}{2}\gen{L,L}_{\infty}]<\infty$ であり，さらにThm.4.13より $L$ は $L^2$-bdd.な連続martingale.
+        つまり $L^1$-bdd.な連続martingaleなのでProp.3.19より $\Exists L_\infty=\lim_{t\to\infty}L_t$ a.s.
+        よってThm.3.21より $L$: UIM.
         このとき
         \begin{align}
             \exp\frac{1}{2}L_{\infty}
@@ -63,14 +63,14 @@
         \end{align}
         
         \item[(ii) $\Rightarrow$ (iii)]
-        $L$ がUIMであることからThm3.22より任意のstopping time $T$ に対し $L_T=E[L_{\infty}\mid\clf_T].$
+        $L$ がUIMであることからThm.3.22より任意のstopping time $T$ に対し $L_T=E[L_{\infty}\mid\clf_T].$
         $e^{x/2}$: convexであることからJensenの不等式より
         \begin{align}
             \exp\frac{1}{2}L_T
             \le E[\exp\frac{1}{2}L_{\infty}\mid\clf_T].
         \end{align}
 
-        $E[\UB{\exp\frac{1}{2}L_{\infty}}{\text{あるr.v.}}]<\infty$ という仮定より，任意のstopping time $T$ に対し $E[\exp\frac{1}{2}L_{\infty}\mid\clf_T]$ の形をしたすべてのr.v.の族は一様可積分（by Thm3.21の最初）．
+        $E[\UB{\exp\frac{1}{2}L_{\infty}}{\text{あるr.v.}}]<\infty$ という仮定より，任意のstopping time $T$ に対し $E[\exp\frac{1}{2}L_{\infty}\mid\clf_T]$ の形をしたすべてのr.v.の族は一様可積分（by Thm.3.21の最初）．
         さらに先ほどの有界性より，任意のstopping time $T$ に対し $\exp\frac{1}{2}L_T$ の形をしたすべてのr.v.の族もまた一様可積分．
 
         $0<\Forall a<1$ に対し，$Z_t^{(a)}\coloneqq\exp(\frac{aL_t}{1+a})$ と定める．
@@ -111,7 +111,7 @@
 \subsection{A Few Applications of Girsanov's Theorem}
 
 \textbf{Constructing solutions of stochastic differential equations（確率微分方程式の解の構成）}
-$b$: bdd.m'ble ft. on $\real_+\times\real$ とする．
+$b$: bdd. m'ble ft. on $\real_+\times\real$ とする．
 $\Forall (t,x)\in\real_+\times\real$ に対し $\abs{b(t,x)}\le g(t)$ を満たす関数 $g\in L^2(\real_+,\clb(\real_+),dt)$ が存在すると仮定．
 これは特に
 \begin{align}
@@ -128,16 +128,16 @@ $B$: $(\clf_t)$-BMとする．
 \begin{align}
     L_t=\int_0^t b(s,B_s)dB_s
 \end{align}
-と関連する指数martingale
+と関連するexponential martingale
 \begin{align}
     D_t
     = \mathcal{E}(L)_t
     = \exp(\int_0^t b(s,B_s)dB_s-\frac{1}{2}\int_0^t b(s,B_s)^2 ds)
 \end{align}
 について考える．
-$b$ の仮定よりThm\ref{thm:523}の(i)が成り立つことは保証され，ゆえに $D$: UIM.
+$b$ の仮定よりThm.\ref{thm:523}の(i)が成り立つことは保証され，ゆえに $D$: UIM.
 $Q\coloneqq D_\infty\cdot P$ と定める．
-Girsanov's ThmとConsequencesの(c)より
+Girsanov's Thm.とConsequencesの(c)より
 \begin{align}
     \beta_t\coloneqq B_t-\int_0^t b(s,B_s)ds
 \end{align}
@@ -148,8 +148,8 @@ Girsanov's ThmとConsequencesの(c)より
     dX_t=d\beta_t+b(t,X_t)dt
 \end{align}
 の解であるような $(\clf_t)$-BM $\beta$ が確率測度 $Q$ の下で存在する，と言い換えることができる．
-（この式は後述の第７章で検討されるタイプのものであるが，この章の記述とは異なり，第７章では関数 $b$ に正則性は仮定していない．
-Girsanov's Thmにより係数の正則性を仮定することなく確率微分方程式の解を構成することができる．）
+（この式は後述のChapter 7で検討されるタイプのものであるが，この章の記述とは異なり，Chapter 7では関数 $b$ に正則性は仮定していない．
+Girsanov's Thm.により係数の正則性を仮定することなく確率微分方程式の解を構成することができる．）
 
 \textbf{The Cameron-Martin formula}
 先ほどの議論を $b(t,x)$ が $x$ に依存しない場合に限って議論する．
@@ -159,7 +159,7 @@ $g\in L^2(\real_+,\clb(\real_+),dt)$ に対し $b(t,x)=g(t)$ と定め，また 
 \end{align}
 と定める．
 この形で表される関数 $h$ 全体の集合 $\mathcal{H}$ をCameron-Martin sp.と呼ぶ．
-$h\in\mathcal{H}$ のとき，しばしば $\dot{h}=g$ と書く（$g$ はdistributionの意味で $h$ の微分である）．
+$h\in\mathcal{H}$ のとき，しばしば $\dot{h}=g$ と書く（$g$ は分布の意味で $h$ の微分である）．
 
 先ほどの議論の特別な場合として，以下に定める確率測度
 \begin{align}
@@ -176,7 +176,7 @@ $h\in\mathcal{H}$ のとき，しばしば $\dot{h}=g$ と書く（$g$ はdistri
     &= E_P[\Phi((B_t+h(t))_{t\ge0})].
 \end{align}
 
-この式の両端の等式（$E_P[D_\infty\Phi((B_t)_{t\ge0})]=E_P[\Phi((B_t+h(t))_{t\ge0})]$）をCameron-Martin formulaと呼ぶ（本当か？）．
+この式の両端の等式（$E_P[D_\infty\Phi((B_t)_{t\ge0})]=E_P[\Phi((B_t+h(t))_{t\ge0})]$）をCameron-Martinの公式と呼ぶ（本当か？）．
 次の命題ではこの公式をWiener sp.上のBMのcanonical construction（Section 2.2末尾参照）の特別な場合について書く．
 
 \end{document}
