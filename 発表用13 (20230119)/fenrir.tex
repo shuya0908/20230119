@@ -67,6 +67,7 @@
         $e^{x/2}$: convexであることからJensenの不等式より
         \begin{align}
             \exp\frac{1}{2}L_T
+            = \exp\frac{1}{2}E[L_{\infty}\mid\clf_T]
             \le E[\exp\frac{1}{2}L_{\infty}\mid\clf_T].
         \end{align}
 
@@ -77,23 +78,39 @@
         このとき
         \begin{align}
             \mathcal{E}(aL)_t
-            = (\mathcal{E}(L)_t)^{a^2}(Z_t^{(a)})^{1-a^2}
+            &= \exp(aL_t-\frac{1}{2}\gen{aL,aL}_t) \\
+            &= \exp(a^2 L_t-\frac{1}{2}\gen{aL,aL}_t+aL_t-a^2 L_t) \\
+            &= \exp(a^2 L_t-\frac{a^2}{2}\gen{L,L}_t)\cdot\exp((1-a)aL_t) \\
+            &= (\exp(L_t-\frac{1}{2}\gen{L,L}_t))^{a^2}(\exp\left(\frac{aL_t}{1+a}\right))^{1-a^2} \\
+            &= (\mathcal{E}(L)_t)^{a^2}(Z_t^{(a)})^{1-a^2}
         \end{align}
-        となることがすぐにわかる．
-        もし $\Gamma\in\clf$ かつ $T$: stopping timeならば，H\"{o}lderの不等式より
+        となる．
+        よって，$\Gamma\in\clf,\ T$: stopping timeに対し，H\"{o}lderの不等式より
         \begin{align}
             E[\bm{1}_\Gamma\mathcal{E}(aL)_T]
-            \le E[\mathcal{E}(L)_T]^{a^2}
-            E[\bm{1}_\Gamma Z_T^{(a)}]^{1-a^2}
-            \le E[\bm{1}_\Gamma Z_T^{(a)}]^{1-a^2}
-            \le E[\bm{1}_\Gamma\exp\frac{1}{2}L_T]^{2a(1-a)}.
+            &= E[\bm{1}_\Gamma(\mathcal{E}(L)_T)^{a^2}(Z_T^{(a)})^{1-a^2}] \\
+            &\le E[\mathcal{E}(L)_T]^{a^2}
+            E[\bm{1}_\Gamma Z_T^{(a)}]^{1-a^2} \\
+            &\le E[\bm{1}_\Gamma Z_T^{(a)}]^{1-a^2} \\
+            &= E[\bm{1}_\Gamma\exp\left(\frac{aL_T}{1+a}\right)]^{1-a^2} \\
+            &\le E[\bm{1}_\Gamma\exp\frac{1}{2}L_T]^{2a(1-a)}.
         \end{align}
 
-        ２つ目の不等号では $E[\mathcal{E}(L)_T]\le1$ という性質を用いた（$\mathcal{E}(L)$: 非負supermartingaleかつ $\mathcal{E}(L)_0=1$ よりProp.3.25が適用できる）．
+        ２つ目の不等号では $E[\mathcal{E}(L)_T]\le(E[\mathcal{E}(L)_0]=)1$ という性質を用いた（$\mathcal{E}(L)$: 非負supermartingaleかつ $\mathcal{E}(L)_0=1$ よりProp.3.25が適用できる）．
         ３つ目の不等号では $\frac{1+a}{2a}>1$ に注意してJensenの不等式を用いた．
+
+        $\because)$ $x^{\frac{1+a}{2a}}$: convexより
+        \begin{align}
+            E[\bm{1}_\Gamma\exp\left(\frac{aL_T}{1+a}\right)]^{\frac{1+a}{2a}}
+            \le E[\bm{1}_\Gamma(\exp\left(\frac{aL_T}{1+a}\right))^{\frac{1+a}{2a}}]
+            = E[\bm{1}_\Gamma\exp\frac{1}{2}L_T].
+        \end{align}
+
+        両辺を $2a(1-a)$ 乗すれば目的の不等式を得る．\qed
+        
         任意のstopping time $T$ に対し $\exp\frac{1}{2}L_T$ の形をしたすべてのr.v.の族が一様可積分であることより，先ほどの表示から任意のstopping time $T$ に対し $\mathcal{E}(aL)_T$ の形をしたすべてのr.v.の族もまた一様可積分であることが言える．
-        CLMの定義より $\Forall n$ に対し $\mathcal{E}(aL)_{t\wedge T_n}$: martingaleとなるstopping timeの増加列 $T_n\uparrow\infty$ が存在する．
-        $0\le s\le t$ に対し $E[\mathcal{E}(aL)_{t\wedge T_n}\mid\clf_s]=\mathcal{E}(aL)_{s\wedge T_n}$ が成り立ち，一様可積分性より両辺について $n\to\infty$ とすると $\mathcal{E}(aL)$ は一様可積分．
+        CLMの定義より $\Forall n$ に対し $\mathcal{E}(aL)_{t\wedge T_n}$: UIMとなるstopping timeの増加列 $T_n\uparrow\infty$ が存在する．
+        $0\le s\le t$ に対し $E[\mathcal{E}(aL)_{t\wedge T_n}\mid\clf_s]=\mathcal{E}(aL)_{s\wedge T_n}$ が成り立ち，一様可積分性よりVitaliの収束定理が適用できるので，両辺について $n\to\infty$ とすると $\mathcal{E}(aL)$ はUIM（$\implies E[\mathcal{E}(aL)_{\infty}]=1$）．
         これより再びJensenの不等式を用いることで
         \begin{align}
             1=E[\mathcal{E}(aL)_{\infty}]
