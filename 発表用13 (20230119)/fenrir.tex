@@ -66,7 +66,7 @@
         $E[\exp\frac{1}{2}L_{\infty}]<\infty$ という仮定より，任意のstopping time $T$ に対し $E[\exp\frac{1}{2}L_{\infty}\mid\clf_T]$ の形をしたすべてのr.v.の族は一様可積分．
         さらに先ほどの有界性より，任意のstopping time $T$ に対し $\exp\frac{1}{2}L_T$ の形をしたすべてのr.v.の族もまた一様可積分．
 
-        $0<\Forall a<1$ に対し，$Z_t^{(a)}:=\exp(\frac{aL_t}{1+a})$ と定める．
+        $0<\Forall a<1$ に対し，$Z_t^{(a)}\coloneqq\exp(\frac{aL_t}{1+a})$ と定める．
         このとき
         \begin{align}
             \mathcal{E}(aL)_t
@@ -129,10 +129,10 @@ $B$: $(\clf_t)$-BMとする．
 \end{align}
 について考える．
 $b$ の仮定よりThm. \ref{thm:523}の(i)が成り立つことは保証され，ゆえに $D$: UIM.
-$Q:=D_\infty\cdot P$ と定める．
+$Q\coloneqq D_\infty\cdot P$ と定める．
 Girsanov's ThmとConsequencesの(c)より
 \begin{align}
-    \beta_t:=B_t-\int_0^t b(s,B_s)ds
+    \beta_t\coloneqq B_t-\int_0^t b(s,B_s)ds
 \end{align}
 で定まるprocessは $(\clf_t)$-BM under $Q.$
 
@@ -145,13 +145,31 @@ Girsanov's ThmとConsequencesの(c)より
 Girsanov's Thmにより係数の正則性を仮定することなく確率微分方程式の解を構成することができる．）
 
 \textbf{The Cameron-Martin formula}
-先ほどの議論を $b(t,x)$ が $x$ に依存しない場合に絞って議論する．
+先ほどの議論を $b(t,x)$ が $x$ に依存しない場合に限って議論する．
 $g\in L^2(\real_+,\clb(\real_+),dt)$ に対し $b(t,x)=g(t)$ と定め，また $\Forall t\ge0$ に対し
 \begin{align}
     h(t)=\int_{0}^{t}g(s)ds
 \end{align}
 と定める．
 この形で表される関数 $h$ 全体の集合 $\mathcal{H}$ をCameron-Martin sp.と呼ぶ．
+$h\in\mathcal{H}$ のとき，しばしば $\dot{h}=g$ と書く（$g$ はdistributionの意味で $h$ の微分である）．
 
+先ほどの議論の特別な場合として，以下に定める確率測度
+\begin{align}
+    Q
+    \coloneqq D_\infty\cdot P
+    = \exp\left(\int_0^\infty g(s)dB_s-\frac{1}{2}\int_0^\infty g(s)^2 ds\right)\cdot P
+\end{align}
+の下で，process $\beta_t\coloneqq B_t-h(t)$ はBM.
+ゆえに任意の非負可測関数 $\Phi$ on $C(\real_+,\real)$ に対し
+\begin{align}
+    E_P[D_\infty\Phi((B_t)_{t\ge0})]
+    &= E_Q[\Phi((B_t)_{t\ge0})] \\
+    &= E_Q[\Phi((\beta_t+h(t))_{t\ge0})] \\
+    &= E_P[\Phi((B_t+h(t))_{t\ge0})].
+\end{align}
+
+この式の両端の等式（$E_P[D_\infty\Phi((B_t)_{t\ge0})]=E_P[\Phi((B_t+h(t))_{t\ge0})]$）をCameron-Martin formulaと呼ぶ（本当か？）．
+次の命題ではこの公式をWiener sp.上のBMのcanonical construction（Section 2.2末尾参照）の特別な場合について書く．
 
 \end{document}
