@@ -27,7 +27,7 @@
             $E[\exp\frac{1}{2}\gen{L,L}_{\infty}]<\infty$
             (Novikov's criterion\footnote{criterion（クライテリオン）：基準})
             \item
-            $L$: CLMかつ $E[\exp\frac{1}{2}L_{\infty}]<\infty$
+            $L$: UIMかつ $E[\exp\frac{1}{2}L_{\infty}]<\infty$
             (Kazamaki's criterion)
             \item
             $\mathcal{E}(L)$: UIM
@@ -40,30 +40,37 @@
 \begin{proof}
     \begin{description}
         \item[(i) $\Rightarrow$ (ii)]
-        (i) より $E[\gen{L,L}_{\infty}]<\infty$ であり，さらにThm. 4.13より $L$ は $L^2$-bdd. な連続martingale.
+        $\gen{L,L}_\infty<\exp\frac{1}{2}\gen{L,L}_\infty$ と(i) より $E[\gen{L,L}_{\infty}]<E[\exp\frac{1}{2}\gen{L,L}_{\infty}]<\infty$ であり，さらにThm4.13より $L$ は $L^2$-bddな連続martingale.
+        つまり $L^1$-bdd.な連続martingaleなのでProp3.19より $\Exists L_\infty=\lim_{t\to\infty}L_t$ a.s.
+        よってThm3.21より $L$: UIM.
         このとき
         \begin{align}
             \exp\frac{1}{2}L_{\infty}
-            = (\mathcal{E}(L)_{\infty})^{1/2}(\exp\frac{1}{2}\gen{L,L}_{\infty})^{1/2}
+            = (\exp L_\infty)^{1/2}
+            &= (\exp(L_\infty-\frac{1}{2}\gen{L,L}_{\infty}+\frac{1}{2}\gen{L,L}_{\infty}))^{1/2} \\
+            &= (\exp(L_\infty-\frac{1}{2}\gen{L,L}_{\infty}))^{1/2}
+            (\exp\frac{1}{2}\gen{L,L}_{\infty})^{1/2} \\
+            &= (\mathcal{E}(L)_{\infty})^{1/2}(\exp\frac{1}{2}\gen{L,L}_{\infty})^{1/2}
         \end{align}
         が成り立つので，Cauchy-Schwarzの不等式より
         \begin{align}
             E[\exp\frac{1}{2}L_{\infty}]
-            &\le (E[\mathcal{E}(L)_{\infty}])^{1/2}
+            &= E[(\mathcal{E}(L)_{\infty})^{1/2}(\exp\frac{1}{2}\gen{L,L}_{\infty})^{1/2}] \\
+            &\le (\UB{E[\mathcal{E}(L)_{\infty}]}{\le E[\mathcal{E}(L)_0]\le1})^{1/2}
             (E[\exp\frac{1}{2}\gen{L,L}_{\infty}])^{1/2} \\
             &\le (E[\exp\frac{1}{2}\gen{L,L}_{\infty}])^{1/2}
             < \infty.
         \end{align}
         
         \item[(ii) $\Rightarrow$ (iii)]
-        $L$ がUIMであることからThm. 3.22より任意のstopping time $T$ に対し $L_T=E[L_{\infty}\mid\clf_T].$
-        Jensenの不等式より
+        $L$ がUIMであることからThm3.22より任意のstopping time $T$ に対し $L_T=E[L_{\infty}\mid\clf_T].$
+        $e^{x/2}$: convexであることからJensenの不等式より
         \begin{align}
             \exp\frac{1}{2}L_T
             \le E[\exp\frac{1}{2}L_{\infty}\mid\clf_T].
         \end{align}
 
-        $E[\exp\frac{1}{2}L_{\infty}]<\infty$ という仮定より，任意のstopping time $T$ に対し $E[\exp\frac{1}{2}L_{\infty}\mid\clf_T]$ の形をしたすべてのr.v.の族は一様可積分．
+        $E[\UB{\exp\frac{1}{2}L_{\infty}}{\text{あるr.v.}}]<\infty$ という仮定より，任意のstopping time $T$ に対し $E[\exp\frac{1}{2}L_{\infty}\mid\clf_T]$ の形をしたすべてのr.v.の族は一様可積分（by Thm3.21の最初）．
         さらに先ほどの有界性より，任意のstopping time $T$ に対し $\exp\frac{1}{2}L_T$ の形をしたすべてのr.v.の族もまた一様可積分．
 
         $0<\Forall a<1$ に対し，$Z_t^{(a)}\coloneqq\exp(\frac{aL_t}{1+a})$ と定める．
@@ -82,7 +89,7 @@
             \le E[\bm{1}_\Gamma\exp\frac{1}{2}L_T]^{2a(1-a)}.
         \end{align}
 
-        ２つ目の不等号では $E[\mathcal{E}(L)_T]\le1$ という性質を用いた（$\mathcal{E}(L)$: 非負supermartingaleかつ $\mathcal{E}(L)_0=1$ よりProp. 3.25が適用できる）．
+        ２つ目の不等号では $E[\mathcal{E}(L)_T]\le1$ という性質を用いた（$\mathcal{E}(L)$: 非負supermartingaleかつ $\mathcal{E}(L)_0=1$ よりProp.3.25が適用できる）．
         ３つ目の不等号では $\frac{1+a}{2a}>1$ に注意してJensenの不等式を用いた．
         任意のstopping time $T$ に対し $\exp\frac{1}{2}L_T$ の形をしたすべてのr.v.の族が一様可積分であることより，先ほどの表示から任意のstopping time $T$ に対し $\mathcal{E}(aL)_T$ の形をしたすべてのr.v.の族もまた一様可積分であることが言える．
         CLMの定義より $\Forall n$ に対し $\mathcal{E}(aL)_{t\wedge T_n}$: martingaleとなるstopping timeの増加列 $T_n\uparrow\infty$ が存在する．
@@ -104,7 +111,7 @@
 \subsection{A Few Applications of Girsanov's Theorem}
 
 \textbf{Constructing solutions of stochastic differential equations（確率微分方程式の解の構成）}
-$b$: bdd. m'ble ft. on $\real_+\times\real$ とする．
+$b$: bdd.m'ble ft. on $\real_+\times\real$ とする．
 $\Forall (t,x)\in\real_+\times\real$ に対し $\abs{b(t,x)}\le g(t)$ を満たす関数 $g\in L^2(\real_+,\clb(\real_+),dt)$ が存在すると仮定．
 これは特に
 \begin{align}
@@ -125,10 +132,10 @@ $B$: $(\clf_t)$-BMとする．
 \begin{align}
     D_t
     = \mathcal{E}(L)_t
-    = \exp\left(\int_0^t b(s,B_s)dB_s-\frac{1}{2}\int_0^t b(s,B_s)^2 ds\right)
+    = \exp(\int_0^t b(s,B_s)dB_s-\frac{1}{2}\int_0^t b(s,B_s)^2 ds)
 \end{align}
 について考える．
-$b$ の仮定よりThm. \ref{thm:523}の(i)が成り立つことは保証され，ゆえに $D$: UIM.
+$b$ の仮定よりThm\ref{thm:523}の(i)が成り立つことは保証され，ゆえに $D$: UIM.
 $Q\coloneqq D_\infty\cdot P$ と定める．
 Girsanov's ThmとConsequencesの(c)より
 \begin{align}
@@ -158,7 +165,7 @@ $h\in\mathcal{H}$ のとき，しばしば $\dot{h}=g$ と書く（$g$ はdistri
 \begin{align}
     Q
     \coloneqq D_\infty\cdot P
-    = \exp\left(\int_0^\infty g(s)dB_s-\frac{1}{2}\int_0^\infty g(s)^2 ds\right)\cdot P
+    = \exp(\int_0^\infty g(s)dB_s-\frac{1}{2}\int_0^\infty g(s)^2 ds)\cdot P
 \end{align}
 の下で，process $\beta_t\coloneqq B_t-h(t)$ はBM.
 ゆえに任意の非負可測関数 $\Phi$ on $C(\real_+,\real)$ に対し
