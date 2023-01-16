@@ -216,4 +216,18 @@ $h\in\mathcal{H}$ のとき，しばしば $\dot{h}=g$ と書く（$g$ は分布
 をCameron-Martinの公式と呼ぶ．
 次の命題ではこの公式をWiener sp.上のBMのcanonical construction（Section 2.2末尾参照）の特別な場合について書く．
 
+\begin{screen}
+    \begin{prop}[Cameron-Martin formula]
+    \label{thm:524}
+        $W(dw)$: Wiener meas. on $C(\real_+,\real), h\in\mathcal{H}$
+
+        このとき $\Forall \Phi$：非負可測関数 on $C(\real_+,\real)$ に対し
+        \begin{align}
+            \int W(dw)\Phi(w+h)
+            = \int W(dw)\exp\left(\int_0^\infty \dot{h}(s)dw_s-\frac{1}{2}\int_0^\infty \dot{h}(s)^2 ds\right)\Phi(w).
+        \end{align}
+    \end{prop}  
+\end{screen}
+
+
 \end{document}
