@@ -132,13 +132,13 @@ $b$: bdd. m'ble ft. on $\real_+\times\real$ とする．
 $\Forall (t,x)\in\real_+\times\real$ に対し $\abs{b(t,x)}\le g(t)$ を満たす関数 $g\in L^2(\real_+,\clb(\real_+),dt)$ が存在すると仮定．
 これは特に
 \begin{align}
-    \abs{b}=
+    \abs{b(t,x)}=
     \begin{cases}
-        \text{bdd.} &\text{on}\quad [0,A]\times\real_+ \\
-        0 &\text{on}\quad (A,\infty)\times\real_+
+        \text{bdd.} &\text{on}\quad [0,A]\times\real \\
+        0 &\text{on}\quad (A,\infty)\times\real
     \end{cases}
 \end{align}
-を満たす $A>0$ が存在するときに成り立つ．
+を満たす $A>0$ が存在するときに成り立つ（$g(t):=\sup_{x\in\real}\abs{b(t,x)}$ と定めればよい）\footnote{この係数 $b$ をドリフト係数という．}．
 
 $B$: $(\clf_t)$-BMとする．
 以下のCLM
@@ -149,14 +149,25 @@ $B$: $(\clf_t)$-BMとする．
 \begin{align}
     D_t
     = \mathcal{E}(L)_t
-    = \exp(\int_0^t b(s,B_s)dB_s-\frac{1}{2}\int_0^t b(s,B_s)^2 ds)
+    = \exp\left(\int_0^t b(s,B_s)dB_s-\frac{1}{2}\int_0^t b(s,B_s)^2 ds\right)
 \end{align}
 について考える．
-$b$ の仮定よりThm.\ref{thm:523}の(i)が成り立つことは保証され，ゆえに $D$: UIM.
-$Q\coloneqq D_\infty\cdot P$ と定める．
+$b$ の仮定よりThm.\ref{thm:523}の(i)が成り立つことは保証されるので $D$: UIM.
+
+$\because)$
+\begin{align}
+    \exp\frac{1}{2}\gen{L,L}_\infty
+    = \exp\left(\frac{1}{2}\int_0^\infty b(s,B_s)^2 ds\right)
+    \le \exp\left(\frac{1}{2}\int_0^\infty g(s)^2 ds\right)
+    < \infty.
+\end{align}\qed
+
+$Q\coloneqq D_\infty\cdot P$, i.e. $A\in\clf_\infty$ に対し $Q(A)\coloneqq\int_A D_\infty dP$ と定める．
 Girsanov's Thm.とConsequencesの(c)より
 \begin{align}
-    \beta_t\coloneqq B_t-\int_0^t b(s,B_s)ds
+    \beta_t
+    \coloneqq B_t-\gen{B,L}_t
+    = B_t-\int_0^t b(s,B_s)ds
 \end{align}
 で定まるprocessは $(\clf_t)$-BM under $Q.$
 
@@ -165,8 +176,8 @@ Girsanov's Thm.とConsequencesの(c)より
     dX_t=d\beta_t+b(t,X_t)dt
 \end{align}
 の解であるような $(\clf_t)$-BM $\beta$ が確率測度 $Q$ の下で存在する，と言い換えることができる．
-（この式は後述のChapter 7で検討されるタイプのものであるが，この章の記述とは異なり，Chapter 7では関数 $b$ に正則性は仮定していない．
-Girsanov's Thm.により係数の正則性を仮定することなく確率微分方程式の解を構成することができる．）
+（この式は後述のChapter 7で検討されるタイプのものであるが，このChapterでの記述とは異なり，Chapter 7では関数 $b$ に正則性は仮定していない．
+Girsanov's Thm.によりドリフト係数の正則性を仮定することなく確率微分方程式の解を構成することができる．）
 
 \textbf{The Cameron-Martin formula}
 先ほどの議論を $b(t,x)$ が $x$ に依存しない場合に限って議論する．
@@ -182,7 +193,7 @@ $h\in\mathcal{H}$ のとき，しばしば $\dot{h}=g$ と書く（$g$ は分布
 \begin{align}
     Q
     \coloneqq D_\infty\cdot P
-    = \exp(\int_0^\infty g(s)dB_s-\frac{1}{2}\int_0^\infty g(s)^2 ds)\cdot P
+    = \exp\left(\int_0^\infty g(s)dB_s-\frac{1}{2}\int_0^\infty g(s)^2 ds\right)\cdot P
 \end{align}
 の下で，process $\beta_t\coloneqq B_t-h(t)$ はBM.
 ゆえに任意の非負可測関数 $\Phi$ on $C(\real_+,\real)$ に対し
