@@ -47,18 +47,18 @@
         \begin{align}
             \exp\frac{1}{2}L_{\infty}
             = (\exp L_\infty)^{1/2}
-            &= (\exp(L_\infty-\frac{1}{2}\gen{L,L}_{\infty}+\frac{1}{2}\gen{L,L}_{\infty}))^{1/2} \\
-            &= (\exp(L_\infty-\frac{1}{2}\gen{L,L}_{\infty}))^{1/2}
-            (\exp\frac{1}{2}\gen{L,L}_{\infty})^{1/2} \\
-            &= (\mathcal{E}(L)_{\infty})^{1/2}(\exp\frac{1}{2}\gen{L,L}_{\infty})^{1/2}
+            &= \left(\exp\left(L_\infty-\frac{1}{2}\gen{L,L}_{\infty}+\frac{1}{2}\gen{L,L}_{\infty}\right)\right)^{1/2} \\
+            &= \left(\exp\left(L_\infty-\frac{1}{2}\gen{L,L}_{\infty}\right)\right)^{1/2}
+            \left(\exp\frac{1}{2}\gen{L,L}_{\infty}\right)^{1/2} \\
+            &= (\mathcal{E}(L)_{\infty})^{1/2}\left(\exp\frac{1}{2}\gen{L,L}_{\infty}\right)^{1/2}
         \end{align}
         が成り立つので，Cauchy-Schwarzの不等式より
         \begin{align}
-            E[\exp\frac{1}{2}L_{\infty}]
-            &= E[(\mathcal{E}(L)_{\infty})^{1/2}(\exp\frac{1}{2}\gen{L,L}_{\infty})^{1/2}] \\
+            E\left[\exp\frac{1}{2}L_{\infty}\right]
+            &= E\left[(\mathcal{E}(L)_{\infty})^{1/2}\left(\exp\frac{1}{2}\gen{L,L}_{\infty}\right)^{1/2}\right] \\
             &\le (\UB{E[\mathcal{E}(L)_{\infty}]}{\le E[\mathcal{E}(L)_0]\le1})^{1/2}
-            (E[\exp\frac{1}{2}\gen{L,L}_{\infty}])^{1/2} \\
-            &\le (E[\exp\frac{1}{2}\gen{L,L}_{\infty}])^{1/2}
+            \left(E\left[\exp\frac{1}{2}\gen{L,L}_{\infty}\right]\right)^{1/2} \\
+            &\le \left(E\left[\exp\frac{1}{2}\gen{L,L}_{\infty}\right]\right)^{1/2}
             < \infty.
         \end{align}
         
@@ -68,7 +68,7 @@
         \begin{align}
             \exp\frac{1}{2}L_T
             = \exp\frac{1}{2}E[L_{\infty}\mid\clf_T]
-            \le E[\exp\frac{1}{2}L_{\infty}\mid\clf_T].
+            \le E\left[\exp\frac{1}{2}L_{\infty}\mid\clf_T\right].
         \end{align}
 
         $E[\UB{\exp\frac{1}{2}L_{\infty}}{\text{あるr.v.}}]<\infty$ という仮定より，任意のstopping time $T$ に対し $E[\exp\frac{1}{2}L_{\infty}\mid\clf_T]$ の形をしたすべてのr.v.の族は一様可積分（by Thm.3.21の最初）．
@@ -78,10 +78,10 @@
         このとき
         \begin{align}
             \mathcal{E}(aL)_t
-            &= \exp(aL_t-\frac{1}{2}\gen{aL,aL}_t) \\
-            &= \exp(a^2 L_t-\frac{1}{2}\gen{aL,aL}_t+aL_t-a^2 L_t) \\
-            &= \exp(a^2 L_t-\frac{a^2}{2}\gen{L,L}_t)\cdot\exp((1-a)aL_t) \\
-            &= (\exp(L_t-\frac{1}{2}\gen{L,L}_t))^{a^2}(\exp\left(\frac{aL_t}{1+a}\right))^{1-a^2} \\
+            &= \exp\left(aL_t-\frac{1}{2}\gen{aL,aL}_t\right) \\
+            &= \exp\left(a^2 L_t-\frac{1}{2}\gen{aL,aL}_t+aL_t-a^2 L_t\right) \\
+            &= \exp\left(a^2 L_t-\frac{a^2}{2}\gen{L,L}_t\right)\cdot\exp((1-a)aL_t) \\
+            &= \left(\exp\left(L_t-\frac{1}{2}\gen{L,L}_t\right)\right)^{a^2}\left(\exp\left(\frac{aL_t}{1+a}\right)\right)^{1-a^2} \\
             &= (\mathcal{E}(L)_t)^{a^2}(Z_t^{(a)})^{1-a^2}
         \end{align}
         となる．
@@ -92,8 +92,8 @@
             &\le E[\mathcal{E}(L)_T]^{a^2}
             E[\bm{1}_\Gamma Z_T^{(a)}]^{1-a^2} \\
             &\le E[\bm{1}_\Gamma Z_T^{(a)}]^{1-a^2} \\
-            &= E[\bm{1}_\Gamma\exp\left(\frac{aL_T}{1+a}\right)]^{1-a^2} \\
-            &\le E[\bm{1}_\Gamma\exp\frac{1}{2}L_T]^{2a(1-a)}.
+            &= E\left[\bm{1}_\Gamma\exp\left(\frac{aL_T}{1+a}\right)\right]^{1-a^2} \\
+            &\le E\left[\bm{1}_\Gamma\exp\frac{1}{2}L_T\right]^{2a(1-a)}.
         \end{align}
 
         ２つ目の不等号では $E[\mathcal{E}(L)_T]\le(E[\mathcal{E}(L)_0]=)1$ という性質を用いた（$\mathcal{E}(L)$: 非負supermartingaleかつ $\mathcal{E}(L)_0=1$ よりProp.3.25が適用できる）．
@@ -101,9 +101,9 @@
 
         $\because)$ $x^{\frac{1+a}{2a}}$: convexより
         \begin{align}
-            E[\bm{1}_\Gamma\exp\left(\frac{aL_T}{1+a}\right)]^{\frac{1+a}{2a}}
-            \le E[\bm{1}_\Gamma(\exp\left(\frac{aL_T}{1+a}\right))^{\frac{1+a}{2a}}]
-            = E[\bm{1}_\Gamma\exp\frac{1}{2}L_T].
+            E\left[\bm{1}_\Gamma\exp\left(\frac{aL_T}{1+a}\right)\right]^{\frac{1+a}{2a}}
+            \le E\left[\bm{1}_\Gamma\left(\exp\left(\frac{aL_T}{1+a}\right)\right)^{\frac{1+a}{2a}}\right]
+            = E\left[\bm{1}_\Gamma\exp\frac{1}{2}L_T\right].
         \end{align}
 
         両辺を $2a(1-a)$ 乗すれば目的の不等式を得る．\qed
@@ -117,7 +117,7 @@
             \le E[\mathcal{E}(L)_\infty]^{a^2}
             E[Z_{\infty}^{(a)}]^{1-a^2}
             \le E[\mathcal{E}(L)_\infty]^{a^2}
-            E[\exp\frac{1}{2}L_\infty]^{2a(1-a)}
+            E\left[\exp\frac{1}{2}L_\infty\right]^{2a(1-a)}
         \end{align}
         がわかる．
         $a\to1$ とすると $E[\mathcal{E}(L)_\infty]\ge1$ より $E[\mathcal{E}(L)_\infty]=1.$
@@ -181,13 +181,17 @@ Girsanov's Thm.によりドリフト係数の正則性を仮定することな�
 
 \textbf{The Cameron-Martin formula}
 先ほどの議論を $b(t,x)$ が $x$ に依存しない場合に限って議論する．
-$g\in L^2(\real_+,\clb(\real_+),dt)$ に対し $b(t,x)=g(t)$ と定め，また $\Forall t\ge0$ に対し
+$g\in L^2(\real_+,\clb(\real_+),dt)$ に対し $g(t)\coloneqq b(t,x)$ と定め，また $\Forall t\ge0$ に対し
 \begin{align}
     h(t)=\int_{0}^{t}g(s)ds
 \end{align}
 と定める．
-この形で表される関数 $h$ 全体の集合 $\mathcal{H}$ をCameron-Martin sp.と呼ぶ．
-$h\in\mathcal{H}$ のとき，しばしば $\dot{h}=g$ と書く（$g$ は分布の意味で $h$ の微分である）．
+\begin{align}
+    \mathcal{H}
+    = \set{h}{h(t)=\int_{0}^{t}g(s)ds\text{ for }\Forall t\ge0}
+\end{align}
+をCameron-Martin sp.という．
+$h\in\mathcal{H}$ のとき，しばしば $\dot{h}=g$ と書く（$g$ は分布の意味で $h$ の導関数である）．
 
 先ほどの議論の特別な場合として，以下に定める確率測度
 \begin{align}
@@ -200,11 +204,16 @@ $h\in\mathcal{H}$ のとき，しばしば $\dot{h}=g$ と書く（$g$ は分布
 \begin{align}
     E_P[D_\infty\Phi((B_t)_{t\ge0})]
     &= E_Q[\Phi((B_t)_{t\ge0})] \\
-    &= E_Q[\Phi((\beta_t+h(t))_{t\ge0})] \\
-    &= E_P[\Phi((B_t+h(t))_{t\ge0})].
+    &= E_Q[\Phi((\UB{\beta_t}{\text{BM under }Q}+h(t))_{t\ge0})] \\
+    &= E_P[\Phi((\UB{B_t}{\text{BM under }P}+h(t))_{t\ge0})].
 \end{align}
 
-この式の両端の等式（$E_P[D_\infty\Phi((B_t)_{t\ge0})]=E_P[\Phi((B_t+h(t))_{t\ge0})]$）をCameron-Martinの公式と呼ぶ（本当か？）．
+この式の両端の等式
+\begin{align}
+    \int dP\Phi(B+h)
+    = \int dP\exp\left(\int_0^\infty g(s)dB_s-\frac{1}{2}\int_0^\infty g(s)^2 ds\right)\Phi(B)
+\end{align}
+をCameron-Martinの公式と呼ぶ．
 次の命題ではこの公式をWiener sp.上のBMのcanonical construction（Section 2.2末尾参照）の特別な場合について書く．
 
 \end{document}
