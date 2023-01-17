@@ -217,10 +217,10 @@ $h\in\mathcal{H}$ のとき，しばしば $\dot{h}=g$ と書く（$g$ は分布
     = \int dP\exp\left(\int_0^\infty g(s)dB_s-\frac{1}{2}\int_0^\infty g(s)^2 ds\right)\Phi(B)
 \end{align}
 をCameron-Martinの公式と呼ぶ．
-次の命題ではこの公式をWiener sp.上のBMのcanonical construction（Section 2.2末尾参照）の特別な場合について書く．
+次の命題ではこの公式をWiener空間上のBMのcanonical construction（Section 2.2末尾参照）の特別な場合について書く．
 
 \begin{shadebox}
-    \begin{prop}[Cameron-Martin formula]
+    \begin{prop}[Cameron-Martinの公式]
     \label{thm:524}
         $W(dw)$: Wiener測度 on $C(\real_+,\real), h\in\mathcal{H}$
 
@@ -233,9 +233,9 @@ $h\in\mathcal{H}$ のとき，しばしば $\dot{h}=g$ と書く（$g$ は分布
 \end{shadebox}
 
 \begin{remark*}
-    積分 $\int_0^\infty\dot{h}(s)dw(s)$ は $W(dw)$ の下でのBMである $w(s)$ について確率積分であるが，関数 $\dot{h}(s)$ は決定論的なのでWiener積分とみなすこともできる．
+    積分 $\int_0^\infty\dot{h}(s)dw(s)$ は $W(dw)$ の下でのBM $w(s)$ について確率積分であるが，関数 $\dot{h}(s)$ は決定論的なのでWiener積分とみなすこともできる．
     Cameron-Martinの公式は確率積分やGirsanovの定理を用いないGaussian calculationsで成立する．
-    それでもこの公式ををGirsanovの定理の特別な例として導き出すことは有益である．
+    それでもこの公式をGirsanovの定理の特別な例として導き出すことは有益である．
 
     Cameron-Martinの公式はCameron-Martin空間に属する関数 $h$ による平行移動の下でのWiener測度の「準不変性」を与える．
     つまり（平行移動させる）写像 $w\mapsto w+h$ の下でのWiener測度 $W(dw)$ の像は $W(dw)$ に関する密度を持ち，この密度はmartingale $\int_0^t \dot{h}(s)dw(s)$ に関連するexponential martingaleの $t=\infty$ での値
