@@ -17,7 +17,7 @@
 \subsection{Girsanov's Theorem}
 
 \setcounter{thm}{22}
-\begin{screen}
+\begin{shadebox}
     \begin{thm}
     \label{thm:523}
         $L$: CLM s.t. $L_0=0.$
@@ -34,7 +34,7 @@
         \end{enumerate}
         このとき，(i) $\Rightarrow$ (ii) $\Rightarrow$ (iii) の順で成立．
     \end{thm}
-\end{screen}
+\end{shadebox}
 
 
 \begin{proof}
@@ -98,7 +98,7 @@
 
         ２つ目の不等号では $E[\mathcal{E}(L)_T]\le(E[\mathcal{E}(L)_0]=)1$ という性質を用いた（$\mathcal{E}(L)$: 非負supermartingaleかつ $\mathcal{E}(L)_0=1$ よりProp.3.25が適用できる）．
         ３つ目の不等号では $\frac{1+a}{2a}>1$ に注意してJensenの不等式を用いた．
-
+        \begin{screen}
         $\because)$ $x^{\frac{1+a}{2a}}$: convexより
         \begin{align}
             E\left[\bm{1}_\Gamma\exp\left(\frac{aL_T}{1+a}\right)\right]^{\frac{1+a}{2a}}
@@ -106,7 +106,8 @@
             = E\left[\bm{1}_\Gamma\exp\frac{1}{2}L_T\right].
         \end{align}
 
-        両辺を $2a(1-a)$ 乗すれば目的の不等式を得る．\qed
+        両辺を $2a(1-a)$ 乗すれば目的の不等式を得る．
+        \end{screen}
         
         任意のstopping time $T$ に対し $\exp\frac{1}{2}L_T$ の形をしたすべてのr.v.の族が一様可積分であることより，先ほどの表示から任意のstopping time $T$ に対し $\mathcal{E}(aL)_T$ の形をしたすべてのr.v.の族もまた一様可積分であることが言える．
         CLMの定義より $\Forall n$ に対し $\mathcal{E}(aL)_{t\wedge T_n}$: UIMとなるstopping timeの増加列 $T_n\uparrow\infty$ が存在する．
@@ -154,13 +155,15 @@ $B$: $(\clf_t)$-BMとする．
 について考える．
 $b$ の仮定よりThm.\ref{thm:523}の(i)が成り立つことは保証されるので $D$: UIM.
 
-$\because)$
-\begin{align}
-    \exp\frac{1}{2}\gen{L,L}_\infty
-    = \exp\left(\frac{1}{2}\int_0^\infty b(s,B_s)^2 ds\right)
-    \le \exp\left(\frac{1}{2}\int_0^\infty g(s)^2 ds\right)
-    < \infty.
-\end{align}\qed
+\begin{screen}
+    $\because)$
+    \begin{align}
+        \exp\frac{1}{2}\gen{L,L}_\infty
+        = \exp\left(\frac{1}{2}\int_0^\infty b(s,B_s)^2 ds\right)
+        \le \exp\left(\frac{1}{2}\int_0^\infty g(s)^2 ds\right)
+        < \infty.
+    \end{align}
+\end{screen}
 
 $Q\coloneqq D_\infty\cdot P$, i.e. $A\in\clf_\infty$ に対し $Q(A)\coloneqq\int_A D_\infty dP$ と定める．
 Girsanov's Thm.とConsequencesの(c)より
@@ -216,7 +219,7 @@ $h\in\mathcal{H}$ のとき，しばしば $\dot{h}=g$ と書く（$g$ は分布
 をCameron-Martinの公式と呼ぶ．
 次の命題ではこの公式をWiener sp.上のBMのcanonical construction（Section 2.2末尾参照）の特別な場合について書く．
 
-\begin{screen}
+\begin{shadebox}
     \begin{prop}[Cameron-Martin formula]
     \label{thm:524}
         $W(dw)$: Wiener meas. on $C(\real_+,\real), h\in\mathcal{H}$
@@ -227,7 +230,7 @@ $h\in\mathcal{H}$ のとき，しばしば $\dot{h}=g$ と書く（$g$ は分布
             = \int W(dw)\exp\left(\int_0^\infty \dot{h}(s)dw_s-\frac{1}{2}\int_0^\infty \dot{h}(s)^2 ds\right)\Phi(w).
         \end{align}
     \end{prop}  
-\end{screen}
+\end{shadebox}
 
 \begin{remark*}
     積分 $\int_0^\infty\dot{h}(s)dw(s)$ は $W(dw)$ の下でのBMである $w(s)$ について確率積分であるが，関数 $\dot{h}(s)$ は決定論的なのでWiener積分とみなすこともできる．
