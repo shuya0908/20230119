@@ -17,7 +17,7 @@
 \subsection{Girsanov's Theorem}
 
 \setcounter{thm}{22}
-\begin{screen}
+\begin{shadebox}
     \begin{thm}
     \label{thm:523}
         $L$: CLM s.t. $L_0=0.$
@@ -34,7 +34,7 @@
         \end{enumerate}
         このとき，(i) $\Rightarrow$ (ii) $\Rightarrow$ (iii) の順で成立．
     \end{thm}
-\end{screen}
+\end{shadebox}
 
 
 \begin{proof}
@@ -98,7 +98,7 @@
 
         ２つ目の不等号では $E[\mathcal{E}(L)_T]\le(E[\mathcal{E}(L)_0]=)1$ という性質を用いた（$\mathcal{E}(L)$: 非負supermartingaleかつ $\mathcal{E}(L)_0=1$ よりProp.3.25が適用できる）．
         ３つ目の不等号では $\frac{1+a}{2a}>1$ に注意してJensenの不等式を用いた．
-
+        \begin{screen}
         $\because)$ $x^{\frac{1+a}{2a}}$: convexより
         \begin{align}
             E\left[\bm{1}_\Gamma\exp\left(\frac{aL_T}{1+a}\right)\right]^{\frac{1+a}{2a}}
@@ -106,7 +106,8 @@
             = E\left[\bm{1}_\Gamma\exp\frac{1}{2}L_T\right].
         \end{align}
 
-        両辺を $2a(1-a)$ 乗すれば目的の不等式を得る．\qed
+        両辺を $2a(1-a)$ 乗すれば目的の不等式を得る．
+        \end{screen}
         
         任意のstopping time $T$ に対し $\exp\frac{1}{2}L_T$ の形をしたすべてのr.v.の族が一様可積分であることより，先ほどの表示から任意のstopping time $T$ に対し $\mathcal{E}(aL)_T$ の形をしたすべてのr.v.の族もまた一様可積分であることが言える．
         CLMの定義より $\Forall n$ に対し $\mathcal{E}(aL)_{t\wedge T_n}$: UIMとなるstopping timeの増加列 $T_n\uparrow\infty$ が存在する．
@@ -128,7 +129,7 @@
 \subsection{A Few Applications of Girsanov's Theorem}
 
 \textbf{Constructing solutions of stochastic differential equations（確率微分方程式の解の構成）}
-$b$: bdd. m'ble ft. on $\real_+\times\real$ とする．
+$b$：有界可測関数 on $\real_+\times\real$ とする．
 $\Forall (t,x)\in\real_+\times\real$ に対し $\abs{b(t,x)}\le g(t)$ を満たす関数 $g\in L^2(\real_+,\clb(\real_+),dt)$ が存在すると仮定．
 これは特に
 \begin{align}
@@ -154,16 +155,18 @@ $B$: $(\clf_t)$-BMとする．
 について考える．
 $b$ の仮定よりThm.\ref{thm:523}の(i)が成り立つことは保証されるので $D$: UIM.
 
-$\because)$
-\begin{align}
-    \exp\frac{1}{2}\gen{L,L}_\infty
-    = \exp\left(\frac{1}{2}\int_0^\infty b(s,B_s)^2 ds\right)
-    \le \exp\left(\frac{1}{2}\int_0^\infty g(s)^2 ds\right)
-    < \infty.
-\end{align}\qed
+\begin{screen}
+    $\because)$
+    \begin{align}
+        \exp\frac{1}{2}\gen{L,L}_\infty
+        = \exp\left(\frac{1}{2}\int_0^\infty b(s,B_s)^2 ds\right)
+        \le \exp\left(\frac{1}{2}\int_0^\infty g(s)^2 ds\right)
+        < \infty.
+    \end{align}
+\end{screen}
 
 $Q\coloneqq D_\infty\cdot P$, i.e. $A\in\clf_\infty$ に対し $Q(A)\coloneqq\int_A D_\infty dP$ と定める．
-Girsanov's Thm.とConsequencesの(c)より
+Girsanovの定理とConsequencesの(c)より
 \begin{align}
     \beta_t
     \coloneqq B_t-\gen{B,L}_t
@@ -177,7 +180,7 @@ Girsanov's Thm.とConsequencesの(c)より
 \end{align}
 の解であるような $(\clf_t)$-BM $\beta$ が確率測度 $Q$ の下で存在する，と言い換えることができる．
 （この式は後述のChapter 7で検討されるタイプのものであるが，このChapterでの記述とは異なり，Chapter 7では関数 $b$ に正則性は仮定していない．
-Girsanov's Thm.によりドリフト係数の正則性を仮定することなく確率微分方程式の解を構成することができる．）
+Girsanovの定理によりドリフト係数の正則性を仮定することなく確率微分方程式の解を構成することができる．）
 
 \textbf{The Cameron-Martin formula}
 先ほどの議論を $b(t,x)$ が $x$ に依存しない場合に限って議論する．
@@ -190,7 +193,7 @@ $g\in L^2(\real_+,\clb(\real_+),dt)$ に対し $g(t)\coloneqq b(t,x)$ と定め�
     \mathcal{H}
     = \set{h}{h(t)=\int_{0}^{t}g(s)ds\text{ for }\Forall t\ge0}
 \end{align}
-をCameron-Martin sp.という．
+をCameron-Martin空間という．
 $h\in\mathcal{H}$ のとき，しばしば $\dot{h}=g$ と書く（$g$ は分布の意味で $h$ の導関数である）．
 
 先ほどの議論の特別な場合として，以下に定める確率測度
@@ -214,28 +217,33 @@ $h\in\mathcal{H}$ のとき，しばしば $\dot{h}=g$ と書く（$g$ は分布
     = \int dP\exp\left(\int_0^\infty g(s)dB_s-\frac{1}{2}\int_0^\infty g(s)^2 ds\right)\Phi(B)
 \end{align}
 をCameron-Martinの公式と呼ぶ．
-次の命題ではこの公式をWiener sp.上のBMのcanonical construction（Section 2.2末尾参照）の特別な場合について書く．
+次の命題ではこの公式をWiener空間上のBMのcanonical construction（Section 2.2末尾参照）の特別な場合について書く．
 
-\begin{screen}
-    \begin{prop}[Cameron-Martin formula]
+\begin{shadebox}
+    \begin{prop}[Cameron-Martinの公式]
     \label{thm:524}
-        $W(dw)$: Wiener meas. on $C(\real_+,\real), h\in\mathcal{H}$
+        $W(dw)$: Wiener測度 on $C(\real_+,\real), h\in\mathcal{H}$
 
         このとき $\Forall \Phi$：非負可測関数 on $C(\real_+,\real)$ に対し
         \begin{align}
             \int W(dw)\Phi(w+h)
-            = \int W(dw)\exp\left(\int_0^\infty \dot{h}(s)dw_s-\frac{1}{2}\int_0^\infty \dot{h}(s)^2 ds\right)\Phi(w).
+            = \int W(dw)\exp\left(\int_0^\infty \dot{h}(s)dw(s)-\frac{1}{2}\int_0^\infty \dot{h}(s)^2 ds\right)\Phi(w).
         \end{align}
     \end{prop}  
-\end{screen}
+\end{shadebox}
 
 \begin{remark*}
-    積分 $\int_0^\infty\dot{h}(s)dw(s)$ は $W(dw)$ の下でのBMである $w(s)$ について確率積分であるが，関数 $\dot{h}(s)$ は決定論的なのでWiener積分とみなすこともできる．
+    積分 $\int_0^\infty\dot{h}(s)dw(s)$ は $W(dw)$ の下でのBM $w(s)$ について確率積分であるが，関数 $\dot{h}(s)$ は決定論的なのでWiener積分とみなすこともできる．
     Cameron-Martinの公式は確率積分やGirsanovの定理を用いないGaussian calculationsで成立する．
-    それでもこの公式ををGirsanovの定理の特別な例として導き出すことは有益である．
+    それでもこの公式をGirsanovの定理の特別な例として導き出すことは有益である．
 
-    Cameron-Martinの公式はCameron-Martin sp.に属する関数によるtranslationの下でWiener測度の「準不変性」を与える．
-    この結果，
+    Cameron-Martinの公式はCameron-Martin空間に属する関数 $h$ による平行移動の下でのWiener測度の「準不変性」を与える．
+    つまり（平行移動させる）写像 $w\mapsto w+h$ の下でのWiener測度 $W(dw)$ の像は $W(dw)$ に関する密度を持ち，この密度はmartingale $\int_0^t \dot{h}(s)dw(s)$ に関連するexponential martingaleの $t=\infty$ での値
+    \begin{align}
+        \mathcal{E}\left(\int_0^{\cdot}\dot{h}(s)dw(s)\right)_\infty
+        = \exp\left(\int_0^\infty \dot{h}(s)dw(s)-\frac{1}{2}\int_0^\infty \dot{h}(s)^2 ds\right)
+    \end{align}
+    である．
 \end{remark*}
 
 \end{document}
