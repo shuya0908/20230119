@@ -139,7 +139,7 @@ $\Forall (t,x)\in\real_+\times\real$ に対し $\abs{b(t,x)}\le g(t)$ を満た�
         0 &\text{on}\quad (A,\infty)\times\real
     \end{cases}
 \end{align}
-を満たす $A>0$ が存在するときに成り立つ（$g(t):=\sup_{x\in\real}\abs{b(t,x)}$ と定めればよい）\footnote{この係数 $b$ をドリフト係数という．}．
+を満たす $A>0$ が存在するときに成り立つ（$g(t):=\sup_{x\in\real}\abs{b(t,x)}$ と定めればよい）\footnote{この係数 $b$ を\textbf{ドリフト係数}という．}．
 
 $B$: $(\clf_t)$-BMとする．
 以下のCLM
@@ -193,7 +193,7 @@ $g\in L^2(\real_+,\clb(\real_+),dt)$ に対し $g(t)\coloneqq b(t,x)$ と定め�
     \mathcal{H}
     = \set{h}{h(t)=\int_{0}^{t}g(s)ds\text{ for }\Forall t\ge0}
 \end{align}
-をCameron-Martin空間という．
+を\textbf{Cameron-Martin空間}という．
 $h\in\mathcal{H}$ のとき，しばしば $\dot{h}=g$ と書く（$g$ は分布の意味で $h$ の導関数である）．
 
 先ほどの議論の特別な場合として，以下に定める確率測度
@@ -216,7 +216,7 @@ $h\in\mathcal{H}$ のとき，しばしば $\dot{h}=g$ と書く（$g$ は分布
     \int dP\Phi(B+h)
     = \int dP\exp\left(\int_0^\infty g(s)dB_s-\frac{1}{2}\int_0^\infty g(s)^2 ds\right)\Phi(B)
 \end{align}
-をCameron-Martinの公式と呼ぶ．
+を\textbf{Cameron-Martinの公式}という．
 次の命題ではこの公式をWiener空間上のBMのcanonical construction（Section 2.2末尾参照）の特別な場合について書く．
 
 \begin{shadebox}
@@ -237,8 +237,8 @@ $h\in\mathcal{H}$ のとき，しばしば $\dot{h}=g$ と書く（$g$ は分布
     Cameron-Martinの公式は確率積分やGirsanovの定理を用いないGaussian calculationsで成立する．
     それでもこの公式をGirsanovの定理の特別な例として導き出すことは有益である．
 
-    Cameron-Martinの公式はCameron-Martin空間に属する関数 $h$ による平行移動の下でのWiener測度の「準不変性」を与える．
-    つまり（平行移動させる）写像 $w\mapsto w+h$ の下でのWiener測度 $W(dw)$ の像は $W(dw)$ に関する密度を持ち，この密度はmartingale $\int_0^t \dot{h}(s)dw(s)$ に関連するexponential martingaleの $t=\infty$ での値
+    Cameron-Martinの公式はCameron-Martin空間に属する関数 $h$ による平行移動の下でのWiener測度の「quasi-invariance（準不変性）」を与える．
+    つまり（平行移動させる）写像 $w\mapsto w+h$ の下でのWiener測度 $W(dw)$ の像は $W(dw)$ に関する密度を持ち，この密度はmartingale $\int_0^t \dot{h}(s)dw(s)$ に関連するexponential martingaleの $t=\infty$ での値，つまり
     \begin{align}
         \mathcal{E}\left(\int_0^{\cdot}\dot{h}(s)dw(s)\right)_\infty
         = \exp\left(\int_0^\infty \dot{h}(s)dw(s)-\frac{1}{2}\int_0^\infty \dot{h}(s)^2 ds\right)
