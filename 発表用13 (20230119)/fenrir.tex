@@ -213,8 +213,8 @@ $h\in\mathcal{H}$ のとき，しばしば $\dot{h}=g$ と書く（$g$ は分布
 
 この式の両端の等式
 \begin{align}
-    \int dP\Phi(B+h)
-    = \int dP\exp\left(\int_0^\infty g(s)dB_s-\frac{1}{2}\int_0^\infty g(s)^2 ds\right)\Phi(B)
+    \int \Phi(B+h)dP
+    = \int\exp\left(\int_0^\infty g(s)dB_s-\frac{1}{2}\int_0^\infty g(s)^2 ds\right)\Phi(B)dP
 \end{align}
 を\textbf{Cameron-Martinの公式}という．
 次の命題ではこの公式をWiener空間上のBMのcanonical construction（Section 2.2末尾参照）の特別な場合について書く．
@@ -226,8 +226,8 @@ $h\in\mathcal{H}$ のとき，しばしば $\dot{h}=g$ と書く（$g$ は分布
 
         このとき $\Forall \Phi$：非負可測関数 on $C(\real_+,\real)$ に対し
         \begin{align}
-            \int W(dw)\Phi(w+h)
-            = \int W(dw)\exp\left(\int_0^\infty \dot{h}(s)dw(s)-\frac{1}{2}\int_0^\infty \dot{h}(s)^2 ds\right)\Phi(w).
+            \int \Phi(w+h)W(dw)
+            = \int\exp\left(\int_0^\infty \dot{h}(s)dw(s)-\frac{1}{2}\int_0^\infty \dot{h}(s)^2 ds\right)\Phi(w)W(dw).
         \end{align}
     \end{prop}  
 \end{shadebox}
