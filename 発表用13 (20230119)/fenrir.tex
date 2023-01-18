@@ -255,38 +255,58 @@ $c\in\real$ のとき，stopping time
 \begin{align}
     U_a\coloneqq\inf\set{t\ge0}{B_t+ct=a}
 \end{align}
-の分布を求めたい．
-もちろん $c=0$ のときは $U_a=T_a$ であり，Cor.2.22より $a^2/B_1^2$ と同じ分布をもつ．
-Girsanovの定理（またはCameron-Martinの公式）より，$c=0$ の特別な場合から $c$ が任意の実数の場合を導くことができる．
+の分布を求める．
 
-$t>0$ を固定する．
-\begin{align}
-    \dot{h}(s)=c\bm{1}_{\{s\le t\}},\quad
-    h(s)=c(s\wedge t)
-\end{align}
-と
-\begin{align}
-    \Phi(w)=\bm{1}_{\{\max_{[0,t]}w(s)\ge a\}}\text{ for }\Forall w\in C(\real_+,\real)
-\end{align}
-に対し，Cameron-Martinの公式を適用する：
-\begin{align}
-    P(U_a\le t)
-    &= E[\Phi(B+h)] \\
-    &= E\left[\Phi(B)\exp\left(\int_0^\infty \dot{h}(s)dB_s-\frac{1}{2}\int_0^\infty \dot{h}(s)^2 ds\right)\right] \\
-    &= E\left[\bm{1}_{\{T_a\le t\}}\exp\left(cB_t-\frac{c^2}{2}t\right)\right] \\
-    &\beq{(\ast)} E\left[\bm{1}_{\{T_a\le t\}}\exp\left(cB_{t\wedge T_a}-\frac{c^2}{2}(t\wedge T_a)\right)\right] \\
-    &= E\left[\bm{1}_{\{T_a\le t\}}\exp\left(ca-\frac{c^2}{2}T_a\right)\right] \\
-    &= \int_0^t \frac{a}{\sqrt{2\pi s^3}}e^{-\frac{a^2}{2s}}e^{ca-\frac{c^2}{2}s}ds \\
-    &= \int_0^t \frac{a}{\sqrt{2\pi s^3}}e^{-\frac{1}{2s}(a-cs)^2}ds.
-\end{align}
-
-\begin{screen}
-    $\because)$（($\ast$)が成り立つこと）
+\begin{proof}
+    $c=0$ のときは $U_a=T_a$ であり，Cor.2.22より $a^2/B_1^2$ と同じ分布をもつ．
+    Girsanovの定理（またはCameron-Martinの公式）より，$c=0$ の特別な場合から $c$ が任意の実数の場合を導くことができる．
+    
+    $t>0$ を固定する．
     \begin{align}
-        E\left[\exp\left(cB_t-\frac{c^2}{2}t\right)\mid\clf_{t\wedge T_a}\right]
-        = \exp\left(cB_{t\wedge T_a}-\frac{c^2}{2}(t\wedge T_a)\right)
+        \dot{h}(s)=c\bm{1}_{\{s\le t\}},\quad
+        h(s)=c(s\wedge t)
     \end{align}
-    を示すためにoptional stopping theoremを用いる．
-\end{screen}
+    と
+    \begin{align}
+        \Phi(w)=\bm{1}_{\{\max_{[0,t]}w(s)\ge a\}}\text{ for }\Forall w\in C(\real_+,\real)
+    \end{align}
+    に対し，Cameron-Martinの公式を適用する：
+    \begin{align}
+        P(U_a\le t)
+        = E[\Phi(B+h)]
+        &= E\left[\Phi(B)\exp\left(\int_0^\infty \dot{h}(s)dB_s-\frac{1}{2}\int_0^\infty \dot{h}(s)^2 ds\right)\right] \\
+        &= E\left[\bm{1}_{\{T_a\le t\}}\exp\left(cB_t-\frac{c^2}{2}t\right)\right] \\
+        &\beq{(\ast)} E\left[\bm{1}_{\{T_a\le t\}}\exp\left(cB_{t\wedge T_a}-\frac{c^2}{2}(t\wedge T_a)\right)\right] \\
+        &= E\left[\bm{1}_{\{T_a\le t\}}\exp\left(ca-\frac{c^2}{2}T_a\right)\right] \\
+        &= \int_0^t \frac{a}{\sqrt{2\pi s^3}}e^{-\frac{a^2}{2s}}e^{ca-\frac{c^2}{2}s}ds \\
+        &= \int_0^t \frac{a}{\sqrt{2\pi s^3}}e^{-\frac{1}{2s}(a-cs)^2}ds.
+    \end{align}
+    
+    \begin{screen}
+        $\because)$（($\ast$)が成り立つこと）
+        \begin{align}
+            E\left[\exp\left(cB_t-\frac{c^2}{2}t\right)\mid\clf_{t\wedge T_a}\right]
+            = \exp\left(cB_{t\wedge T_a}-\frac{c^2}{2}(t\wedge T_a)\right)
+        \end{align}
+        を示すためにoptional stopping theoremを適用し，さらにCor.2.22で与えられた $T_a$ の密度 $f(t)=\frac{a}{\sqrt{2\pi t^3}}e^{-\frac{a^2}{2t}}$ を用いる．
+    \end{screen}
+    
+    この計算によりr.v. $U_a$ は $\real_+$ 上に密度
+    \begin{align}
+        \psi(s)
+        = \frac{a}{\sqrt{2\pi s^3}}e^{-\frac{1}{2s}(a-cs)^2}
+    \end{align}
+    を持つことがわかる．
+\end{proof}
+
+この密度を積分することで
+\begin{align}
+    P(U_a<\infty)=
+    \begin{cases}
+        1 &\text{if } c\ge0, \\
+        e^{2ca} &\text{if } c\le0
+    \end{cases}
+\end{align}
+がわかるが，この結果は連続martingale $\exp{(-2c(B_t+ct))}$ に対しoptional stopping theoremを適用することで，より簡単に得ることができる．
 
 \end{document}
