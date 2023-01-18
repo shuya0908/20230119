@@ -268,27 +268,34 @@ $c\in\real$ のとき，stopping time
     \end{align}
     と
     \begin{align}
-        \Phi(w)=\bm{1}_{\{\max_{[0,t]}w(s)\ge a\}}\text{ for }\Forall w\in C(\real_+,\real)
+        \Phi(w)=\bm{1}_{\{\max_{s\in[0,t]}w(s)\ge a\}}\text{ for }\Forall w\in C(\real_+,\real)
     \end{align}
     に対し，Cameron-Martinの公式を適用する：
     \begin{align}
         P(U_a\le t)
-        = E[\Phi(B+h)]
-        &= E\left[\Phi(B)\exp\left(\int_0^\infty \dot{h}(s)dB_s-\frac{1}{2}\int_0^\infty \dot{h}(s)^2 ds\right)\right] \\
+        &= P(\max_{s\in[0,t]}(B_s+cs)\ge a) \\
+        &= P(\max_{s\in[0,t]}(B_s+c(s\wedge t))\ge a) \\
+        &= P(\max_{s\in[0,t]}(B_s+h(s))\ge a) \\
+        &= E[\bm{1}_{\{\max_{s\in[0,t]}(B_s+h(s))\ge a\}}]
+        = E[\Phi(B+h)] \\
+        &\beq{\text{C-M}} E\left[\Phi(B)\exp\left(\int_0^\infty \dot{h}(s)dB_s-\frac{1}{2}\int_0^\infty \dot{h}(s)^2 ds\right)\right] \\
+        &= E\left[\bm{1}_{\{T_a\le t\}}\exp\left(c\int_0^\infty \bm{1}_{\{s\le t\}}dB_s-\frac{c^2}{2}\int_0^\infty \bm{1}_{\{s\le t\}} ds\right)\right] \\
         &= E\left[\bm{1}_{\{T_a\le t\}}\exp\left(cB_t-\frac{c^2}{2}t\right)\right] \\
         &\beq{(\ast)} E\left[\bm{1}_{\{T_a\le t\}}\exp\left(cB_{t\wedge T_a}-\frac{c^2}{2}(t\wedge T_a)\right)\right] \\
         &= E\left[\bm{1}_{\{T_a\le t\}}\exp\left(ca-\frac{c^2}{2}T_a\right)\right] \\
+        &= \int_{-\infty}^{\infty} \bm{1}_{\{s\le t\}}e^{ca-\frac{c^2}{2}s}\cdot\frac{a}{\sqrt{2\pi s^3}}e^{-\frac{a^2}{2s}}\bm{1}_{\{s>0\}}ds \\
         &= \int_0^t \frac{a}{\sqrt{2\pi s^3}}e^{-\frac{a^2}{2s}}e^{ca-\frac{c^2}{2}s}ds \\
         &= \int_0^t \frac{a}{\sqrt{2\pi s^3}}e^{-\frac{1}{2s}(a-cs)^2}ds.
     \end{align}
     
     \begin{screen}
         $\because)$（($\ast$)が成り立つこと）
+        $\exp\left(cB_t-\frac{c^2}{2}t\right)$: martingaleであることからCor.3.23より
         \begin{align}
             E\left[\exp\left(cB_t-\frac{c^2}{2}t\right)\mid\clf_{t\wedge T_a}\right]
-            = \exp\left(cB_{t\wedge T_a}-\frac{c^2}{2}(t\wedge T_a)\right)
+            = \exp\left(cB_{t\wedge T_a}-\frac{c^2}{2}(t\wedge T_a)\right).
         \end{align}
-        を示すためにoptional stopping theoremを適用し，さらにCor.2.22で与えられた $T_a$ の密度 $f(t)=\frac{a}{\sqrt{2\pi t^3}}e^{-\frac{a^2}{2t}}$ を用いる．
+        % さらにCor.2.22で与えられた $T_a$ の密度 $f(t)=\frac{a}{\sqrt{2\pi t^3}}e^{-\frac{a^2}{2t}}$ を用いる．
     \end{screen}
     
     この計算によりr.v. $U_a$ は $\real_+$ 上に密度
@@ -307,6 +314,6 @@ $c\in\real$ のとき，stopping time
         e^{2ca} &\text{if } c\le0
     \end{cases}
 \end{align}
-がわかるが，この結果は連続martingale $\exp{(-2c(B_t+ct))}$ に対しoptional stopping theoremを適用することで，より簡単に得ることができる．
+がわかるが，この結果は連続martingale $\exp{(-2c(B_t+ct))}$ に対しoptional stopping theoremを適用することで，より簡単に得ることができる\nazo．
 
 \end{document}
