@@ -211,13 +211,13 @@ $h\in\mathcal{H}$ のとき，しばしば $\dot{h}=g$ と書く（$g$ は分布
     &= E_P[\Phi((\UB{B_t}{\text{BM under }P}+h(t))_{t\ge0})].
 \end{align}
 
-この式の両端の等式
+この式の最左辺と最右辺を見た
 \begin{align}
     \int \Phi(B+h)dP
     = \int\exp\left(\int_0^\infty g(s)dB_s-\frac{1}{2}\int_0^\infty g(s)^2 ds\right)\Phi(B)dP
 \end{align}
 を\textbf{Cameron-Martinの公式}という．
-次の命題ではこの公式をWiener空間上のBMのcanonical construction（Section 2.2末尾参照）の特別な場合について書く．
+次の命題では，この公式をWiener空間上のBMのcanonical construction（Section 2.2末尾参照）の特別な場合について書く．
 
 \begin{shadebox}
     \begin{prop}[Cameron-Martinの公式]
@@ -233,12 +233,12 @@ $h\in\mathcal{H}$ のとき，しばしば $\dot{h}=g$ と書く（$g$ は分布
 \end{shadebox}
 
 \begin{remark*}
-    積分 $\int_0^\infty\dot{h}(s)dw(s)$ は $W(dw)$ の下でのBM $w(s)$ について確率積分であるが，関数 $\dot{h}(s)$ は決定論的なのでWiener積分とみなすこともできる．
-    Cameron-Martinの公式は確率積分やGirsanovの定理を用いないGaussian calculationsで成立する．
-    それでもこの公式をGirsanovの定理の特別な例として導き出すことは有益である．
+    積分 $\int_0^\infty\dot{h}(s)dw(s)$ は $W(dw)$ の下でのBM $w(s)$ について確率積分であるが，関数 $\dot{h}(s)$ は決定論的なprogressive processなのでWiener積分とみなすこともできる．
+    よって，実はCameron-Martinの公式は確率積分やGirsanovの定理を用いないGaussian calculations（分布の計算）から導くことができる．
+    しかしこの公式をGirsanovの定理を用いて導出することは有益である．
 
-    Cameron-Martinの公式はCameron-Martin空間に属する関数 $h$ による平行移動の下でのWiener測度の「quasi-invariance（準不変性）」を与える．
-    つまり（平行移動させる）写像 $w\mapsto w+h$ の下でのWiener測度 $W(dw)$ の像は $W(dw)$ に関する密度を持ち，この密度はmartingale $\int_0^t \dot{h}(s)dw(s)$ に関連するexponential martingaleの $t=\infty$ での値，つまり
+    Cameron-Martinの公式より，Wiener測度はCameron-Martin空間に属する関数 $h$ による平行移動の下で「quasi-invariance（準不変性）」を持つことがわかる．
+    つまり（平行移動させる）写像 $w\mapsto w+h$ の下でのWiener測度 $W(dw)$ の像測度は $W(dw)$ に関する密度を持ち\nazo，この密度はmartingale $\int_0^t \dot{h}(s)dw(s)$ に関連するexponential martingaleの $t=\infty$ での値，つまり
     \begin{align}
         \mathcal{E}\left(\int_0^{\cdot}\dot{h}(s)dw(s)\right)_\infty
         = \exp\left(\int_0^\infty \dot{h}(s)dw(s)-\frac{1}{2}\int_0^\infty \dot{h}(s)^2 ds\right)
