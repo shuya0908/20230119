@@ -171,7 +171,7 @@ $\Forall (t,x)\in\real_+\times\real$ に対し $\abs{b(t,x)}\le g(t)$ を満た�
         0 &\text{on}\quad (A,\infty)\times\real
     \end{cases}
 \end{align}
-を満たす $A>0$ が存在するときに成り立つ（$g(t):=\sup_{x\in\real}\abs{b(t,x)}$ と定めればよい）\footnote{この係数 $b$ を\textbf{ドリフト係数}という．}．
+を満たす $A>0$ が存在するときに成り立つ（$g(t):=\sup_{x\in\real}\abs{b(t,x)}$ と定めればよい）\footnote{この係数 $b$ を\textbf{ドリフト係数}という（progressiveであることも仮定したほうが良い？）．}．
 
 $B$: $(\clf_t)$-BMとする．
 以下のCLM
@@ -211,7 +211,7 @@ Girsanovの定理とConsequencesの(c)より
     dX_t=d\beta_t+b(t,X_t)dt
 \end{align}
 の解であるような $(\clf_t)$-BM $\beta$ が確率測度 $Q$ の下で存在する，と言い換えることができる．
-（この式は後述のChapter 7で検討されるタイプのものであるが，このChapterでの記述とは異なり，Chapter 7では関数 $b$ に正則性は仮定していない．
+（この式は後述のChapter 8で検討されるタイプのものであるが，Chapter 8での記述とは異なり，ここでは関数 $b$ に正則性は仮定していない．
 Girsanovの定理によりドリフト係数の正則性を仮定することなく確率微分方程式の解を構成することができる．）
 
 \textbf{The Cameron-Martin formula}
@@ -226,7 +226,7 @@ $g\in L^2(\real_+,\clb(\real_+),dt)$ に対し $g(t)\coloneqq b(t,x)$ と定め�
     = \set{h}{h(t)=\int_{0}^{t}g(s)ds\text{ for }\Forall t\ge0}
 \end{align}
 を\textbf{Cameron-Martin空間}という．
-$h\in\mathcal{H}$ のとき，しばしば $\dot{h}=g$ と書く（$g$ は分布の意味で $h$ の導関数である）．
+$h\in\mathcal{H}$ のとき，しばしば $\dot{h}=g$ と書く（$g$ は超関数の意味で $h$ の導関数である）．
 
 先ほどの議論の特別な場合として，以下に定める確率測度
 \begin{align}
@@ -239,8 +239,8 @@ $h\in\mathcal{H}$ のとき，しばしば $\dot{h}=g$ と書く（$g$ は分布
 \begin{align}
     E_P[D_\infty\Phi((B_t)_{t\ge0})]
     = E_Q[\Phi((B_t)_{t\ge0})]
-    &= E_Q[\Phi((\UB{\beta_t}{\text{BM under }Q}+h(t))_{t\ge0})] \\
-    &= E_P[\Phi((\UB{B_t}{\text{BM under }P}+h(t))_{t\ge0})].
+    = E_Q[\Phi((\UB{\beta_t}{\text{BM under }Q}+h(t))_{t\ge0})]
+    \beq{\text{同分布}} E_P[\Phi((\UB{B_t}{\text{BM under }P}+h(t))_{t\ge0})].
 \end{align}
 
 この式の最左辺と最右辺を見た
@@ -265,12 +265,12 @@ $h\in\mathcal{H}$ のとき，しばしば $\dot{h}=g$ と書く（$g$ は分布
 \end{shadebox}
 
 \begin{remark*}
-    積分 $\int_0^\infty\dot{h}(s)dw(s)$ は $W(dw)$ の下でのBM $w(s)$ について確率積分であるが，関数 $\dot{h}(s)$ は決定論的なprogressive processなのでWiener積分とみなすこともできる．
-    よって，実はCameron-Martinの公式は確率積分やGirsanovの定理を用いないGaussian calculations（分布の計算）から導くことができる．
-    しかしこの公式をGirsanovの定理を用いて導出することは有益である．
+    積分 $\int_0^\infty\dot{h}(s)dw(s)$ は $W(dw)$ の下でのBM $w(s)$ について確率積分であるが，関数 $\dot{h}(s)$ は決定論的なのでWiener積分とみなすこともできる．
+    よって，実はCameron-Martinの公式は確率積分やGirsanovの定理を用いないGauss系の性質から導くことができる．
+    しかしこの公式をGirsanovの定理を用いて導出することは教育的である．
 
     Cameron-Martinの公式より，Wiener測度はCameron-Martin空間に属する関数 $h$ による平行移動の下で「quasi-invariance（準不変性）」を持つことがわかる．
-    つまり（平行移動させる）写像 $w\mapsto w+h$ の下でのWiener測度 $W(dw)$ の像測度は $W(dw)$ に関する密度を持ち\nazo，この密度はmartingale $\int_0^t \dot{h}(s)dw(s)$ に関連するexponential martingaleの $t=\infty$ での値，つまり
+    つまり（平行移動させる）写像 $w\mapsto w+h$ の下でのWiener測度 $W(dw)$ の像測度は $W(dw)$ に関する密度を持ち（絶対連続），この密度はmartingale $\int_0^t \dot{h}(s)dw(s)$ に関連するexponential martingaleの $t=\infty$ での値，つまり
     \begin{align}
         \mathcal{E}\left(\int_0^{\cdot}\dot{h}(s)dw(s)\right)_\infty
         = \exp\left(\int_0^\infty \dot{h}(s)dw(s)-\frac{1}{2}\int_0^\infty \dot{h}(s)^2 ds\right)
@@ -302,7 +302,7 @@ $c\in\real$ のとき，stopping time
     \begin{align}
         \Phi(w)=\bm{1}_{\{\max_{s\in[0,t]}w(s)\ge a\}}\text{ for }\Forall w\in C(\real_+,\real)
     \end{align}
-    に対し，Cameron-Martinの公式を適用する：
+    に対し
     \begin{align}
         P(U_a\le t)
         &= P(\max_{s\in[0,t]}(B_s+cs)\ge a) \\
@@ -346,6 +346,28 @@ $c\in\real$ のとき，stopping time
         e^{2ca} &\text{if } c\le0
     \end{cases}
 \end{align}
-がわかるが，この結果は連続martingale $\exp{(-2c(B_t+ct))}$ に対しoptional stopping theoremを適用することで，より簡単に得ることができる\nazo．
-
+がわかるが，この結果は連続martingale $\exp{(-2c(B_t+ct))}$ に対しoptional stopping theoremを適用することで，より簡単に得ることができる．
+\begin{screen}
+    $\because)$
+    $c\in\real$ に対しhitting timeのラプラス変換は
+    \begin{align}
+        E\left[\exp\left(-\frac{c^2}{2}T_a\right)\right]
+        = e^{-\abs{c}a}
+    \end{align}
+    となる．
+    ゆえに
+    \begin{align}
+        P(U_a\le t)=E\left[\bm{1}_{\{T_a\le t\}}\exp\left(ca-\frac{c^2}{2}T_a\right)\right]
+    \end{align}
+    の両辺について $t\to\infty$ とすると
+    \begin{align}
+        P(U_a<\infty)
+        = e^{ca} E\left[\exp\left(-\frac{c^2}{2}T_a\right)\right]
+        = e^{ca}\cdot e^{-\abs{c}a} =
+        \begin{cases}
+            1 &\text{if } c\ge0, \\
+            e^{2ca} &\text{if } c\le0.
+        \end{cases}
+    \end{align}
+\end{screen}
 \end{document}
