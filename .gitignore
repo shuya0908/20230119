@@ -1,2 +1,4 @@
-20230119.*
-!*.tex
+*.aux
+*.log
+*.out
+*.synctex.gz
